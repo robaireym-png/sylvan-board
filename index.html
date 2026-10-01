@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sylvan & Scourge — Board</title>
+<style>
+:root { color-scheme: light; --bg:#f6f3ec; --card:#fff; --ink:#222; --mute:#666; --line:#e2dccf;
+  --robert:#b4442b; --claude:#5a49a8; --grok:#1f7a6a; --due:#8a5a00; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.4 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+header { padding:14px 14px 6px; }
+h1 { font-size:20px; margin:0; }
+.sub { color:var(--mute); font-size:13px; margin-top:2px; }
+.count { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 2px; }
+.pill { background:#fff; border:1px solid var(--line); border-radius:999px; padding:3px 10px; font-size:13px; }
+.pill b { color:var(--robert); }
+nav { position:sticky; top:0; z-index:5; background:var(--bg); border-bottom:1px solid var(--line);
+  display:flex; gap:6px; overflow-x:auto; padding:8px 14px; }
+nav button { flex:0 0 auto; border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 12px; font-size:13px; color:var(--ink); }
+nav button.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+main { padding:10px 14px 40px; display:grid; gap:14px; grid-template-columns:1fr; }
+@media (min-width:900px){ main.all { grid-template-columns:repeat(6, minmax(220px,1fr)); overflow-x:auto; } }
+section.col h2 { font-size:15px; margin:4px 0 2px; display:flex; justify-content:space-between; }
+section.col .hint { color:var(--mute); font-size:12px; margin-bottom:8px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 11px; margin-bottom:8px; }
+.card .t { font-weight:600; }
+.card .d { color:#333; font-size:13.5px; margin-top:3px; }
+.meta { display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-top:7px; font-size:12px; }
+.own { color:#fff; border-radius:5px; padding:1px 7px; font-weight:600; }
+.own.Robert{background:var(--robert)} .own.Claude{background:var(--claude)} .own.Grok{background:var(--grok)}
+.due { color:var(--due); font-weight:600; }
+.prio { color:var(--mute); }
+.moves { margin-left:auto; display:flex; gap:4px; }
+.moves button { border:1px solid var(--line); background:#faf8f3; border-radius:6px; padding:2px 8px; font-size:13px; }
+.moved { font-size:11px; color:var(--claude); }
+details.help { background:#fff; border:1px solid var(--line); border-radius:10px; margin:10px 14px 0; padding:10px 12px; }
+details.help summary { font-weight:600; cursor:pointer; }
+details.help h3 { font-size:14px; margin:12px 0 4px; }
+details.help p, details.help li { font-size:14px; }
+details.help ul { padding-left:18px; margin:4px 0; }
+.foot { color:var(--mute); font-size:12px; padding:0 14px 30px; }
+.reset { border:1px solid var(--line); background:#fff; border-radius:6px; padding:4px 10px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Sylvan &amp; Scourge — Project Board</h1>
+  <div class="sub">Updated Sep 30, 2026 · Submit to App Store <b>Oct 26</b> · Live about <b>Nov 2</b> · Mac/Xcode builds required</div>
+  <div class="count" id="count"></div>
+</header>
+
+<details class="help">
+  <summary>How to use this board (2-minute read)</summary>
+  <h3>What each column means</h3>
+  <ul>
+    <li><b>Ideas</b> — "maybe someday." Nobody is working on these. Parking them here keeps them from getting lost.</li>
+    <li><b>Backlog</b> — real work we plan to do, just not this week. Ordered roughly by when it's needed.</li>
+    <li><b>Next Up (Sprint)</b> — what we've committed to finish this sprint. Top card = most important.</li>
+    <li><b>In Development</b> — someone is actively working on it right now.</li>
+    <li><b>Review / Waiting on Robert</b> — finished work for you to check, or a decision only you can make. Nothing behind these cards can move until you answer.</li>
+    <li><b>Done</b> — finished and signed off by you.</li>
+  </ul>
+  <h3>What a sprint is</h3>
+  <p>A sprint is a short, fixed block of time (here: one week, Thursday to Wednesday) with a small list of work we promise to finish. Short sprints make it obvious, every week, whether we're on track for Oct 26. If something doesn't fit, it goes back to Backlog instead of quietly slipping.</p>
+  <p><b>Current sprint:</b> Sprint 1, Oct 1 – Oct 7. Goal: barracks finished and on your phone, plus the decisions that unblock it.</p>
+  <h3>How to move cards</h3>
+  <p>Tap <b>◀</b> or <b>▶</b> on a card to move it one column left or right. Your moves are saved <b>on this device only</b>. To make a move permanent for everyone, just tell Claude ("move X to Done" or "answer to X: yes") and the board gets republished.</p>
+  <h3>Suggested weekly routine (about 15 minutes)</h3>
+  <ul>
+    <li><b>Wednesday evening — review:</b> look at Review / Waiting on Robert. Answer the top 2–3 decisions (one line each is enough). Move anything you've approved to Done.</li>
+    <li><b>Thursday — plan the sprint:</b> pick the next few cards from Backlog into Next Up. Rule of thumb: no more than 6–8 cards in a sprint.</li>
+    <li><b>Daily, optional — 1-minute glance:</b> is anything stuck in In Development or waiting on you for more than two days? Say so.</li>
+    <li><b>End of each sprint:</b> ask "are we still on track for Oct 26?" If not, cut scope, not quality.</li>
+  </ul>
+  <h3>Who's who</h3>
+  <p><span class="own Robert">Robert</span> decides, tests on the phone, runs the Mac/Xcode and App Store steps. <span class="own Claude">Claude</span> writes code, specs and docs. <span class="own Grok">Grok</span> makes the art.</p>
+</details>
+
+<nav id="nav"></nav>
+<main id="board"></main>
+<div class="foot">
+  This board holds topics only — no code and nothing private. Sources: project board and docs in the game repo, the June decision log (D-01 to D-14), the project timeline, and the Sylvan &amp; Scourge Drive inboxes.<br>
+  Note: the D-numbered decisions were written in June; a few may already be settled elsewhere. If one is, just say "D-xx is settled" and it moves to Done.
+  <br><br><button class="reset" id="reset">Undo my local card moves</button>
+</div>
+
+<script>
+const COLS = [
+  {k:"ideas", n:"Ideas", h:"Maybe someday. Not scheduled."},
+  {k:"backlog", n:"Backlog", h:"Planned, not this week. Ordered by when it's needed."},
+  {k:"next", n:"Next Up (Sprint 1, Oct 1–7)", h:"Committed this sprint. Top = most important."},
+  {k:"dev", n:"In Development", h:"Being worked on right now."},
+  {k:"wait", n:"Review / Waiting on Robert", h:"Your call. Top = most urgent."},
+  {k:"done", n:"Done", h:"Finished and signed off."}
+];
+
+const CARDS = [
+ // IN DEVELOPMENT
+ {id:"dev1", c:"dev", t:"Side-scroll barracks hall", d:"Putting Grok's approved long hall (10 bunks, hero corner) into the game.", o:"Claude"},
+ {id:"dev2", c:"dev", t:"Zoom-in from map to barracks", d:"Tapping the barracks on the map zooms smoothly into the hall.", o:"Claude"},
+ {id:"dev3", c:"dev", t:"Elf soldier art swap", d:"Swap in the new elf soldiers and retire the old ones (including the Zelda look-alike).", o:"Claude"},
+
+ // NEXT UP — Sprint 1, priority order working back from Oct 26
+ {id:"n1", c:"next", t:"Test the barracks on your iPhone", d:"Once the build lands in TestFlight, walk through map → zoom → hall → equip.", o:"Robert", due:"Oct 4"},
+ {id:"n2", c:"next", t:"Rewrite Phase 3c for side-scroll", d:"Old 3c was a frame for a vertical list; redo it for the sideways hall (or cancel if no frame).", o:"Claude", due:"Oct 3"},
+ {id:"n3", c:"next", t:"Grok fix pack (3i)", d:"Small re-exports and tidy-up from the review; empty-bunk art if you want stripped beds.", o:"Grok", due:"Oct 6"},
+ {id:"n4", c:"next", t:"Lock the v1 feature list", d:"Agree what ships Oct 26 and what waits for an update. Protects the date.", o:"Robert", due:"Oct 7"},
+ {id:"n5", c:"next", t:"Write the 'how to equip' rule", d:"The new hall has no footlocker; write down where players tap to equip soldiers.", o:"Claude", due:"Oct 7"},
+ {id:"n6", c:"next", t:"Final app icon", d:"One half-elf/half-goblin image; it also fills the faction-select screen.", o:"Grok", due:"Oct 9"},
+
+ // WAITING ON ROBERT — decisions, most urgent first
+ {id:"w1", c:"wait", t:"Is the roof-off frame (3c) wanted?", d:"Yes = Claude rewrites 3c. No = tap goes straight into the hall and 3c is cancelled.", o:"Robert", due:"Oct 2"},
+ {id:"w2", c:"wait", t:"Empty bunk: stripped bed or just empty?", d:"A stripped bed shows 'soldier died, recruit needed' vs 'out on a mission'.", o:"Robert", due:"Oct 2"},
+ {id:"w3", c:"wait", t:"Painted style: barracks only, or all future art?", d:"The hall is painted, the rest of the game is flat. Grok's note wants painted for everything.", o:"Robert", due:"Oct 3"},
+ {id:"w4", c:"wait", t:"Do runes count as 'skills'?", d:"Three upgrade systems hang on this one word (SS-397). Answer it once, not piecemeal.", o:"Robert", due:"Oct 7"},
+ {id:"w5", c:"wait", t:"Two paid buildings that do nothing", d:"Training Yard and Officers Tent: make their bonuses work, or drop them, before combat ships (SS-360).", o:"Robert", due:"Oct 10"},
+ {id:"w6", c:"wait", t:"Turn on the board's phone link", d:"GitHub → repo Settings → Pages → Source: 'GitHub Actions'. One switch; then this board gets a permanent link.", o:"Robert", due:"Oct 3"},
+ {id:"w7", c:"wait", t:"Stop wasted Xcode Cloud builds", d:"5-minute App Store Connect setting so doc-only changes don't trigger builds (SS-324).", o:"Robert"},
+ {id:"w8", c:"wait", t:"Gem shop: keep selling speed-ups?", d:"Speed-ups now come from events and chests. Should the gem shop still sell them? (SS-392)", o:"Robert"},
+ {id:"w9", c:"wait", t:"Insignia: keep or retire?", d:"Chief XP now comes from chests and cards; is insignia still needed? (SS-393)", o:"Robert"},
+ {id:"w10", c:"wait", t:"Crystals need something to spend on", d:"Crystals currently have no use. Pick a use or retire them (SS-394).", o:"Robert"},
+ {id:"w11", c:"wait", t:"Legacy XP: archive or mark 'not in game'", d:"You dropped it; just pick how to file it (SS-391).", o:"Robert"},
+ {id:"w12", c:"wait", t:"D-12 Weapon/armor chiefs", d:"Make weapon/armor specialist chiefs actually work (A), or simplify them for v1 (B)?", o:"Robert"},
+ {id:"w13", c:"wait", t:"D-13 Mini-game scoring", d:"Score 'most mined in 48h' (A, recommended) instead of 'biggest pile at the buzzer'?", o:"Robert"},
+ {id:"w14", c:"wait", t:"D-05 Weekly event and Books", d:"When joining the weekly event, should Books carry over or reset? Leaning reset.", o:"Robert"},
+ {id:"w15", c:"wait", t:"D-06 Leaderboard cheat protection", d:"Approve the phased plan: server checks scores for impossible numbers first, deeper checks later?", o:"Robert"},
+ {id:"w16", c:"wait", t:"D-14 Research line shape", d:"Approve: resets each run, paid in coins, straight line R1→R7. Numbers stay tunable.", o:"Robert"},
+ {id:"w17", c:"wait", t:"D-02 Keep 16 runes", d:"Keep mining speed and mining yield as separate runes (recommended)?", o:"Robert"},
+ {id:"w18", c:"wait", t:"D-07 Worker names", d:"Lock Forest Sprite / Elven Courier and Goblin Digger / Goblin Runner?", o:"Robert"},
+ {id:"w19", c:"wait", t:"D-03 Names for two new runes", d:"Elf 'Celerity' + 'Fleetstep', goblin 'Drill Frenzy' + 'Boot Rocket'? Taste call.", o:"Robert"},
+
+ // BACKLOG — ordered by need date working back from Oct 26
+ {id:"b1", c:"backlog", t:"Privacy policy page", d:"Required by Apple before submission.", o:"Claude", due:"Oct 10"},
+ {id:"b2", c:"backlog", t:"Wider TestFlight beta", d:"Open the build to the tester group; collect bug reports.", o:"Robert", due:"Oct 12"},
+ {id:"b3", c:"backlog", t:"Fix bugs from beta", d:"Work the tester reports, most serious first.", o:"Claude", due:"Oct 19"},
+ {id:"b4", c:"backlog", t:"App Store listing text", d:"Title, description, keywords. Uses the 'skill-fair sprints' wording (D-11).", o:"Claude", due:"Oct 16"},
+ {id:"b5", c:"backlog", t:"App Store screenshots", d:"Phone screenshots of the best screens.", o:"Robert", due:"Oct 19"},
+ {id:"b6", c:"backlog", t:"First-launch tutorial check", d:"Make sure a brand-new player knows what to tap first.", o:"Claude", due:"Oct 17"},
+ {id:"b7", c:"backlog", t:"Code freeze", d:"Only critical fixes after this date.", o:"Claude", due:"Oct 21"},
+ {id:"b8", c:"backlog", t:"Final Mac build + signing", d:"Last Xcode build and upload from the Mac.", o:"Robert", due:"Oct 24"},
+ {id:"b9", c:"backlog", t:"Submit to App Store", d:"Press submit in App Store Connect. Apple review takes ~1–3 days.", o:"Robert", due:"Oct 26"},
+ {id:"b10", c:"backlog", t:"Answer Apple review, go live", d:"Respond to any rejection notes quickly.", o:"Robert", due:"Nov 2"},
+ {id:"b11", c:"backlog", t:"Balance pass (D-04, D-08, D-10)", d:"Tune costs, chest drops and node mixes together using the economy model.", o:"Claude", due:"Oct 14"},
+ {id:"b12", c:"backlog", t:"Goblin hall a bit brighter", d:"It's very dark; you marked it 'good for now'.", o:"Grok"},
+ {id:"b13", c:"backlog", t:"Hero figures in the hero corner", d:"Add heroes to the hero quarters once the room is final.", o:"Grok"},
+
+ // IDEAS
+ {id:"i1", c:"ideas", t:"Armor/tier looks on soldiers", d:"Show a copper vs mithril soldier at a glance (art phase 4). After launch.", o:"Grok"},
+ {id:"i2", c:"ideas", t:"More book tiers (D-09)", d:"Deferred to after launch; decide from player data.", o:"Claude"},
+ {id:"i3", c:"ideas", t:"Repair lane", d:"Your parked repair ideas, kept as a backlog note.", o:"Robert"},
+ {id:"i4", c:"ideas", t:"Mini-game splash banners", d:"Title art for each mini-game.", o:"Grok"},
+ {id:"i5", c:"ideas", t:"Weekly token shop skins", d:"Cosmetic skins players can buy with earned tokens.", o:"Grok"},
+
+ // DONE
+ {id:"d1", c:"done", t:"All ART-034 barracks art approved", d:"Grok's phases 3a–3h, edge fix and finish pass.", o:"Grok", due:"Sep 30"},
+ {id:"d2", c:"done", t:"Side-scroll layout chosen", d:"Long sideways hall replaces the old vertical list.", o:"Robert", due:"Sep 29"},
+ {id:"d3", c:"done", t:"Goblin hero named", d:"Krell Blackscar and his cleaver, Old Notch.", o:"Grok", due:"Sep 30"},
+ {id:"d4", c:"done", t:"Barracks art review written", d:"Full check of every delivery, for you, in robert-inbox.", o:"Claude", due:"Sep 30"},
+ {id:"d5", c:"done", t:"Design sheets for phone", d:"All design sheets as phone-friendly PDFs.", o:"Claude", due:"Sep 28"},
+ {id:"d6", c:"done", t:"Fresh-install fix (copper on node 2)", d:"New players can reach the Smelter.", o:"Robert", due:"Sep 4"},
+ {id:"d7", c:"done", t:"D-11 Marketing wording", d:"'Skill-fair sprints + progression ladder' replaces 'no pay to win'.", o:"Robert", due:"Jun 14"},
+ {id:"d8", c:"done", t:"D-01 Bonus caps", d:"Each bonus type has its own cap; numbers tunable.", o:"Claude", due:"Jun 15"}
+];
+
+const KEY = "ss-board-moves-v1";
+let moves = {};
+try { moves = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e) { moves = {}; }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(moves)); } catch(e) {} }
+let view = "all";
+
+function colOf(card){ return moves[card.id] || card.c; }
+function esc(s){ return String(s).replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch])); }
+
+function render(){
+  const nav = document.getElementById("nav");
+  nav.innerHTML = "";
+  [{k:"all", n:"All"}].concat(COLS).forEach(c => {
+    const b = document.createElement("button");
+    const n = c.k==="all" ? CARDS.length : CARDS.filter(x=>colOf(x)===c.k).length;
+    b.textContent = (c.k==="next" ? "Next Up" : c.n.replace(" (Sprint 1, Oct 1–7)","")) + " · " + n;
+    if (c.k===view) b.className = "on";
+    b.onclick = () => { view = c.k; render(); window.scrollTo(0,0); };
+    nav.appendChild(b);
+  });
+
+  const waitN = CARDS.filter(x=>colOf(x)==="wait").length;
+  document.getElementById("count").innerHTML =
+    '<span class="pill">Days to submission: <b>'+daysTo("2026-10-26")+'</b></span>' +
+    '<span class="pill">Waiting on you: <b>'+waitN+'</b></span>' +
+    '<span class="pill">In this sprint: <b>'+CARDS.filter(x=>colOf(x)==="next").length+'</b></span>';
+
+  const board = document.getElementById("board");
+  board.className = view==="all" ? "all" : "";
+  board.innerHTML = "";
+  COLS.forEach((col, ci) => {
+    if (view!=="all" && view!==col.k) return;
+    const sec = document.createElement("section");
+    sec.className = "col";
+    const list = CARDS.filter(x=>colOf(x)===col.k);
+    sec.innerHTML = '<h2><span>'+esc(col.n)+'</span><span class="prio">'+list.length+'</span></h2><div class="hint">'+esc(col.h)+'</div>';
+    list.forEach((card, i) => {
+      const el = document.createElement("div");
+      el.className = "card";
+      const pr = (col.k==="next"||col.k==="wait") ? '<span class="prio">#'+(i+1)+'</span>' : '';
+      el.innerHTML = '<div class="t">'+esc(card.t)+'</div><div class="d">'+esc(card.d)+'</div>' +
+        '<div class="meta">'+pr+'<span class="own '+card.o+'">'+card.o+'</span>' +
+        (card.due ? '<span class="due">Due '+esc(card.due)+'</span>' : '') +
+        (moves[card.id] ? '<span class="moved">moved on this device</span>' : '') +
+        '<span class="moves"></span></div>';
+      const mv = el.querySelector(".moves");
+      if (ci>0) { const b=document.createElement("button"); b.textContent="◀"; b.title="Move left";
+        b.onclick=()=>{ setCol(card, COLS[ci-1].k); }; mv.appendChild(b); }
+      if (ci<COLS.length-1) { const b=document.createElement("button"); b.textContent="▶"; b.title="Move right";
+        b.onclick=()=>{ setCol(card, COLS[ci+1].k); }; mv.appendChild(b); }
+      sec.appendChild(el);
+    });
+    board.appendChild(sec);
+  });
+}
+function setCol(card, k){ if (k===card.c) delete moves[card.id]; else moves[card.id]=k; save(); render(); }
+function daysTo(iso){ const d = Math.ceil((new Date(iso+"T23:59:59") - new Date())/86400000); return d<0?0:d; }
+document.getElementById("reset").onclick = () => { moves = {}; save(); render(); };
+render();
+</script>
+</body>
+</html>
