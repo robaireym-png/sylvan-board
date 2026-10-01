@@ -49,7 +49,7 @@ details.help ul { padding-left:18px; margin:4px 0; }
 <body>
 <header>
   <h1>Sylvan &amp; Scourge - Project Board</h1>
-  <div class="sub">Updated Sep 30, 2026 &middot; Submit to App Store <b>Oct 26</b> &middot; Live about <b>Nov 2</b></div>
+  <div class="sub">Updated Oct 1, 2026 &middot; Submit to App Store <b>Oct 26</b> &middot; Live about <b>Nov 2</b></div>
   <div class="count" id="count"></div>
 </header>
 
@@ -167,40 +167,81 @@ const CARDS = [
  {
   "id": "SS-370",
   "c": "wait",
-  "t": "Surveyor tents arrived: approve?",
-  "d": "Grok delivered both surveyor tents (elf and goblin) on Sep 26. Approve the look and they go in the game.",
-  "o": "Robert",
-  "due": "Oct 3"
+  "t": "Surveyor tents: approved, now on the map",
+  "d": "You approved both tents. The Surveyor's Tent stands just above the barracks (your placeholder spot); tap it to open Research. In the next build.",
+  "o": "Claude",
+  "due": "Oct 2"
  },
  {
   "id": "SS-415",
   "c": "wait",
-  "t": "Troop capacity: research or runes?",
-  "d": "Does barracks space grow from research (resets each run) or from runes (permanent)?",
+  "t": "Troop capacity: decided and built",
+  "d": "Your call: start with 4 berths, research gives +2 and +2, the new Muster rune gives the rest (+1 a tier). Locked berths show what opens them. In the next build.",
+  "o": "Claude",
+  "due": "Oct 2"
+ },
+ {
+  "id": "SS-422",
+  "c": "done",
+  "t": "Sixty early-September fixes: marked Done",
+  "d": "You said assume fixes work unless you say otherwise. Done. Your plain-language list of what changed, by build, is in your inbox.",
+  "o": "Robert",
+  "due": "Oct 1"
+ },
+ {
+  "id": "SS-352",
+  "c": "done",
+  "t": "Porters' feet: marked Done",
+  "d": "In build 181 since Sep 30; assumed working per your rule.",
+  "o": "Robert",
+  "due": "Oct 1"
+ },
+ {
+  "id": "SS-360",
+  "c": "backlog",
+  "t": "Two paid buildings that do nothing: build whatever you decide",
+  "d": "Training Yard and Officers Tent bonuses are now two questions above. This card wires your answer before combat ships.",
+  "o": "Claude"
+ },
+ {
+  "id": "SS-458",
+  "c": "wait",
+  "t": "Training Yard ($4.99): pick its bonus",
+  "d": "Today it does nothing and is not on sale. (A) +1 troop berth, (B) troops keep more kit through prestige, (C) training speed once recruiting exists, (D) drop it.",
+  "o": "Robert",
+  "due": "Oct 10"
+ },
+ {
+  "id": "SS-459",
+  "c": "wait",
+  "t": "Officers Tent ($2.99): pick its bonus",
+  "d": "Today it does nothing and is not on sale. (A) hero keeps extra kit / hero XP, (B) extra scout party or cheaper scouting, (C) injury recovery once injuries exist, (D) drop it.",
+  "o": "Robert",
+  "due": "Oct 10"
+ },
+ {
+  "id": "SS-457",
+  "c": "wait",
+  "t": "Buildings sheet: every building, what it costs, what works",
+  "d": "Rebuilt from the code: 12 structures, paid or free, bonuses, prerequisites, what a tap opens, active or not. The old sheet was out of date.",
   "o": "Robert",
   "due": "Oct 3"
  },
  {
-  "id": "SS-422",
+  "id": "SS-454",
   "c": "wait",
-  "t": "Sign off 60 early-September items?",
-  "d": "Older fixes still say \"waiting for your phone check\". OK to mark them all Done, except any you've seen misbehave?",
-  "o": "Robert"
- },
- {
-  "id": "SS-352",
-  "c": "wait",
-  "t": "Porters' feet: check on your phone",
-  "d": "The fix for sliding feet was marked shipped on Sep 20 but only reached the build on Sep 30 (build 181).",
-  "o": "Robert"
- },
- {
-  "id": "SS-360",
-  "c": "wait",
-  "t": "Two paid buildings that do nothing",
-  "d": "Training Yard and Officers Tent: make their bonuses work, or drop them, before combat ships.",
+  "t": "Combat rules and the one tunable table",
+  "d": "The combat rules as built, troop capacity, and a first-draft weapon damage / armor defense table by tier with room to adjust.",
   "o": "Robert",
-  "due": "Oct 10"
+  "due": "Oct 3"
+ },
+ {
+  "id": "SS-455",
+  "c": "wait",
+  "t": "PvE challenges: the skeleton",
+  "d": "Challenges get built after the tier table is set. How the gates work: minimum troops and minimum gear tier.",
+  "o": "Robert",
+  "due": "Oct 3"
  },
  {
   "id": "SS-399",
@@ -276,49 +317,49 @@ const CARDS = [
   "id": "SS-442",
   "c": "wait",
   "t": "D-13 Mini-game scoring",
-  "d": "Score \"most mined in 48h\" (A, recommended) instead of \"biggest pile at the buzzer\"?",
+  "d": "(A, recommended) most mined in 48h, or (B) biggest pile at the buzzer?",
   "o": "Robert"
  },
  {
   "id": "SS-443",
   "c": "wait",
   "t": "D-05 Weekly event and Books",
-  "d": "When joining the weekly event, do Books carry over or reset? Leaning reset.",
+  "d": "(A) reset, leaning this, or (B) carry over?",
   "o": "Robert"
  },
  {
   "id": "SS-444",
   "c": "wait",
   "t": "D-06 Leaderboard cheat protection",
-  "d": "Approve the phased plan: check scores for impossible numbers first, deeper checks later?",
+  "d": "(A) yes - impossible scores rejected first, deeper checks later; or (B) something else?",
   "o": "Robert"
  },
  {
   "id": "SS-445",
   "c": "wait",
   "t": "D-14 Research line shape",
-  "d": "Approve: resets each run, paid in coins, straight line R1 to R7? Numbers stay tunable.",
+  "d": "(A) approve: resets each run, straight line R1 to R7, numbers tunable - note research costs no gold today, so 'paid in coins' would be a change; or (B) change something.",
   "o": "Robert"
  },
  {
   "id": "SS-446",
   "c": "wait",
   "t": "D-02 Separate speed and yield runes",
-  "d": "Looks settled already: 17 runes are in the game with them separate. Confirm?",
+  "d": "Looks settled already: the runes are in the game with speed and yield separate. (A) confirm or (B) merge them?",
   "o": "Robert"
  },
  {
   "id": "SS-447",
   "c": "wait",
   "t": "D-07 Worker names",
-  "d": "Lock Forest Sprite / Elven Courier and Goblin Digger / Goblin Runner?",
+  "d": "(A) lock Forest Sprite / Elven Courier and Goblin Digger / Goblin Runner, or (B) other names?",
   "o": "Robert"
  },
  {
   "id": "SS-448",
   "c": "wait",
   "t": "D-03 Names for two new runes",
-  "d": "Elf \"Celerity\" + \"Fleetstep\", goblin \"Drill Frenzy\" + \"Boot Rocket\"? Taste call.",
+  "d": "(A) elf Celerity + Fleetstep, goblin Drill Frenzy + Boot Rocket, or (B) your own? Also: the new Muster rune has placeholder names you can change.",
   "o": "Robert"
  },
  {
@@ -620,6 +661,22 @@ const CARDS = [
   "d": "Each bonus type has its own cap; numbers tunable.",
   "o": "Claude",
   "due": "Jun 15"
+ },
+ {
+  "id": "SS-456",
+  "c": "done",
+  "t": "Your updates list",
+  "d": "What changed in the game, by build, in plain words. In your inbox. Fixes are assumed to work unless you say otherwise.",
+  "o": "Robert",
+  "due": "Oct 1"
+ },
+ {
+  "id": "SS-460",
+  "c": "done",
+  "t": "Asking you less",
+  "d": "Sessions now check the board for an existing answer before asking you anything. One old question is closed for good.",
+  "o": "Claude",
+  "due": "Oct 1"
  }
 ];
 
