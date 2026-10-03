@@ -49,7 +49,7 @@ details.help ul { padding-left:18px; margin:4px 0; }
 <body>
 <header>
   <h1>Sylvan &amp; Scourge - Project Board</h1>
-  <div class="sub">Updated Oct 1, 2026 &middot; Submit to App Store <b>Oct 26</b> &middot; Live about <b>Nov 2</b></div>
+  <div class="sub">Updated Oct 3, 2026 &middot; Submit to App Store <b>Oct 26</b> &middot; Live about <b>Nov 2</b></div>
   <div class="count" id="count"></div>
 </header>
 
@@ -684,13 +684,16 @@ const KEY = "ss-board-moves-v2";
 let moves = {};
 try { moves = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e) { moves = {}; }
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(moves)); } catch(e) {} }
-let view = "all";
+// SS-461 (Robert, 2026-10-03): Review / Waiting on Robert tab first and open by default,
+// the other lanes in workflow order, All last. Only the tab order changes; COLS (columns, moves) does not.
+let view = "wait";
+const TABS = COLS.filter(c => c.k==="wait").concat(COLS.filter(c => c.k!=="wait"), [{k:"all", n:"All"}]);
 function colOf(card){ return moves[card.id] || card.c; }
 function esc(s){ return String(s).replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch])); }
 function render(){
   const nav = document.getElementById("nav");
   nav.innerHTML = "";
-  [{k:"all", n:"All"}].concat(COLS).forEach(c => {
+  TABS.forEach(c => {
     const b = document.createElement("button");
     const n = c.k==="all" ? CARDS.length : CARDS.filter(x=>colOf(x)===c.k).length;
     b.textContent = c.n.replace(/ \(.*\)$/,"") + " · " + n;
