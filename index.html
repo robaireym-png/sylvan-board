@@ -34,6 +34,7 @@ section.col .hint { color:var(--mute); font-size:12px; margin-bottom:8px; }
 .due { color:var(--due); font-weight:600; }
 .prio { color:var(--mute); }
 .ref { color:var(--mute); font-size:11px; }
+.ssid { display:inline-block; font-weight:700; font-size:12px; color:#fff; background:#555; border-radius:5px; padding:0 6px; margin-right:4px; vertical-align:1px; }
 .moves { margin-left:auto; display:flex; gap:4px; }
 .moves button { border:1px solid var(--line); background:#faf8f3; border-radius:6px; padding:2px 8px; font-size:13px; }
 .moved { font-size:11px; color:var(--claude); }
@@ -49,7 +50,7 @@ details.help ul { padding-left:18px; margin:4px 0; }
 <body>
 <header>
   <h1>Sylvan &amp; Scourge - Project Board</h1>
-  <div class="sub">Updated Oct 6, 2026 &middot; Submit to App Store <b>Oct 26</b> &middot; Live about <b>Nov 2</b></div>
+  <div class="sub">Updated Oct 7, 2026 &middot; Submit to App Store <b>Oct 26</b> &middot; Live about <b>Nov 2</b></div>
   <div class="count" id="count"></div>
 </header>
 
@@ -151,8 +152,8 @@ const CARDS = [
  {
   "id": "SS-414",
   "c": "done",
-  "t": "Barracks hall: seen, your four changes are SS-464",
-  "d": "You looked and asked for four changes; they are in the next build.",
+  "t": "Barracks hall: your four changes, in build 186",
+  "d": "Zoomed out 20 %, no scrolling past what is unlocked, empty beds say Vacant, one trooper to look at.",
   "o": "Claude"
  },
  {
@@ -212,15 +213,15 @@ const CARDS = [
  {
   "id": "SS-459",
   "c": "done",
-  "t": "Officers Tent ($2.99): decided - drop it",
-  "d": "Your call: no tent. Officers move into the Barracks as a room.",
+  "t": "Officers Tent: dropped, room in the Barracks",
+  "d": "Your call: no tent. Gone from the map and the shop, kept in the project. Officers live in the Barracks room.",
   "o": "Robert"
  },
  {
   "id": "SS-463",
   "c": "done",
-  "t": "Officers Tent retired; Officers' room in the Barracks",
-  "d": "Gone from the map and the shop, kept in the project. The hero quarters in the Barracks are now the Officers' room.",
+  "t": "Merged into SS-459",
+  "d": "Same topic as dropping the Officers Tent.",
   "o": "Claude"
  },
  {
@@ -275,9 +276,9 @@ const CARDS = [
  },
  {
   "id": "SS-341",
-  "c": "wait",
-  "t": "Crafting ladder redesign: your sign-off",
-  "d": "Fable's design is written; a few calls in it are yours.",
+  "c": "done",
+  "t": "Craft ladder: your \"let her rip\" is in",
+  "d": "Every chain checked: starts somewhere, ends somewhere, nothing left over. Six trophy materials added - elves use goblin teeth, tusks and sigils; goblins use elf ears, pelts and circlets. Bought for now, dropped in battles later.",
   "o": "Robert"
  },
  {
@@ -297,29 +298,29 @@ const CARDS = [
  {
   "id": "SS-350",
   "c": "wait",
-  "t": "Goblin tree: your sign-off",
-  "d": "Nine gaps, four new materials, one number that doesn't close.",
+  "t": "Goblin tree: printed for you",
+  "d": "Fable designed it on Sep 20. The whole goblin tree, tier 1 to 10, is now on one big print sheet in your inbox. Two calls left in it: the wood ratio at the top tier, and the goblin leather name.",
   "o": "Robert"
  },
  {
   "id": "SS-346",
-  "c": "wait",
-  "t": "Component stockpile: your sign-off",
-  "d": "Components approved; the chest research needs your yes.",
+  "c": "done",
+  "t": "Merged into SS-348",
+  "d": "Same topic as the component storage card. You said move on components as is.",
   "o": "Robert"
  },
  {
   "id": "SS-348",
   "c": "backlog",
-  "t": "Components: bought, limited storage",
-  "d": "Your call: buy components, store a limited amount, and that sets how many items you can craft.",
+  "t": "Components: moving on as is",
+  "d": "Your call: components are for crafting. Bought, limited storage, sets how many items you can craft. Built in build 187.",
   "o": "Claude"
  },
  {
   "id": "SS-349",
   "c": "wait",
-  "t": "Consumables: your sign-off",
-  "d": "Bought at the market stall, held, spent when needed.",
+  "t": "Consumables: Fable's starter list, OK to build?",
+  "d": "Your rule: consumables are for use. Seven items: small and large speed-up, a salve that heals a trooper, a scout lens, a war tonic, a war banner, and a cure for a hero injury. Three are brewed from the new trophies. Needs code, so not built yet - say go.",
   "o": "Robert"
  },
  {
@@ -689,23 +690,23 @@ const CARDS = [
  },
  {
   "id": "SS-462",
-  "c": "ideas",
-  "t": "Idea: troops earn medals or ranks",
-  "d": "A ranked troop dying hurts more, so players gear up and protect their veterans. Medals or ranks: still to decide.",
+  "c": "done",
+  "t": "Merged into SS-472",
+  "d": "Medals or ranks: you chose ranks first, medals later. Lives on the troop recruiting card.",
   "o": "Claude"
  },
  {
   "id": "SS-464",
   "c": "done",
-  "t": "Barracks hall: your four changes",
-  "d": "In build 186: zoomed out 20 %, no scrolling past what's unlocked, empty beds say Vacant, one trooper to look at.",
+  "t": "Merged into SS-414",
+  "d": "Same topic as your barracks-hall changes. Built in build 186.",
   "o": "Claude"
  },
  {
   "id": "SS-465",
   "c": "done",
-  "t": "Craft ladder: 14 steps in the Workshop",
-  "d": "Copper Kit up to Masterwork, with part-making steps between. Starts by itself when the materials are in, resets each run, every finished step adds camp value.",
+  "t": "Merged into SS-341",
+  "d": "Same topic as the crafting ladder card. Built in build 188; the card lives on as SS-341.",
   "o": "Claude"
  },
  {
@@ -746,9 +747,16 @@ const CARDS = [
  {
   "id": "SS-472",
   "c": "wait",
-  "t": "Troop recruiting: Fable's plan to approve",
-  "d": "Two starter soldiers (Sword and Bow), each named. Open a bay with materials, then pay gold or craft the gear they ask for. Ranks from Recruit to Champion. Three yes/no questions.",
+  "t": "Troop recruiting: the two free spearmen",
+  "d": "Your yes on all three is in. Fable's fix: the two free starters are Spearmen, handed a crude spear in a short skippable scene. Sword and Bow are the first ones you recruit. Trooper 3 costs 50 gold plus gear, rising to 675 by trooper 10. Two yes/no: does a spearman stay a spearman? Do the two free ones come back after each prestige?",
   "o": "Robert"
+ },
+ {
+  "id": "SS-232",
+  "c": "done",
+  "t": "No more duplicate cards",
+  "d": "Your rule is in: your answer goes on the card you answered, every card shows its number, and the board is searched before a new card is made. Five repeats found and merged.",
+  "o": "Claude"
  }
 ];
 
@@ -791,7 +799,8 @@ function render(){
       const el = document.createElement("div");
       el.className = "card";
       const pr = (col.k==="next"||col.k==="wait") ? '<span class="prio">#'+(i+1)+'</span>' : '';
-      el.innerHTML = '<div class="t">'+esc(card.t)+'</div><div class="d">'+esc(card.d)+'</div>' +
+      // SS-232 (Robert, 2026-10-07): every card shows its SS number up front, so an answer maps to one card.
+      el.innerHTML = '<div class="t"><span class="ssid">'+esc(card.id)+'</span> '+esc(card.t)+'</div><div class="d">'+esc(card.d)+'</div>' +
         '<div class="meta">'+pr+'<span class="own '+card.o+'">'+card.o+'</span>' +
         (card.due ? '<span class="due">Due '+esc(card.due)+'</span>' : '') +
         '<span class="ref">'+esc(card.id)+'</span>' +
