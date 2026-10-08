@@ -69,7 +69,7 @@ details.help ul { padding-left:18px; margin:4px 0; }
   <p>Every card here is a card on the project's master board (the small SS number on each card). This page is rebuilt from it, so it can't drift: when a card moves on the master board, it moves here the next time the page is rebuilt.</p>
   <h3>What a sprint is</h3>
   <p>A sprint is a short, fixed block of time (here: one week, Thursday to Wednesday) with a small list of work we promise to finish. If something doesn't fit, it goes back to Backlog instead of quietly slipping.</p>
-  <p><b>Current sprint:</b> Sprint 1, Oct 1-7. Goal: barracks finished and on your phone, plus the decisions that unblock it.</p>
+  <p><b>Current sprint:</b> Sprint 2, Oct 8-14. Goal: battles switched on for the beta (if you say yes), the store-build switches in, the privacy page live, and the Oct 11 beta build out.</p>
   <h3>How to move cards</h3>
   <p>Tap <b>&#9664;</b> or <b>&#9654;</b> on a card to move it on <b>this device only</b>. To make a move permanent, tell Claude ("move SS-414 to Done" or "answer to SS-415: research") and the board is rebuilt.</p>
   <h3>Suggested weekly routine (about 15 minutes)</h3>
@@ -105,7 +105,7 @@ const COLS = [
  },
  {
   "k": "next",
-  "n": "Next Up (Sprint 1, Oct 1-7)",
+  "n": "Next Up (Sprint 2, Oct 8-14)",
   "h": "Committed this sprint. Top = most important."
  },
  {
@@ -126,12 +126,74 @@ const COLS = [
 ];
 const CARDS = [
  {
-  "id": "SS-434",
+  "id": "SS-477",
+  "c": "wait",
+  "t": "Fable's week review",
+  "d": "Two pages in your inbox: where the game is, this week's plan day by day, the battle plan, art holes, where mini-games stand, eight yes/no questions - and the boss menu to pick from.",
+  "o": "Claude",
+  "due": "Oct 8"
+ },
+ {
+  "id": "SS-279",
   "c": "next",
-  "t": "Lock the v1 feature list",
-  "d": "Agree what ships Oct 26 and what waits for an update. Protects the date.",
+  "t": "First playable battles",
+  "d": "Your troops and hero march from the barracks as they stand; fights switch on for players in the Oct 11 build if you say yes. The boss menu is a page in your inbox - only the first boss matters for launch.",
+  "o": "Claude",
+  "due": "Oct 11"
+ },
+ {
+  "id": "SS-478",
+  "c": "next",
+  "t": "Store-build switches",
+  "d": "The developer menu and test buttons are hidden in the store build; faction switching is locked; the sample leaderboard is labelled; the three races hidden if you say so. In the Oct 11 build.",
+  "o": "Claude",
+  "due": "Oct 11"
+ },
+ {
+  "id": "SS-479",
+  "c": "next",
+  "t": "Enemy camps: the list",
+  "d": "Five camps and a boss camp in the home region, with what each pays. Numbers tuned after the gear table.",
+  "o": "Claude",
+  "due": "Oct 8"
+ },
+ {
+  "id": "SS-480",
+  "c": "next",
+  "t": "After the battle",
+  "d": "Troopers can fall or be wounded; the fallen lose gear, name and rank and go up on the Honour Wall; survivors earn ranks; camps pay materials and trophies.",
+  "o": "Claude",
+  "due": "Oct 9"
+ },
+ {
+  "id": "SS-481",
+  "c": "next",
+  "t": "The War Table",
+  "d": "In the barracks officers' room: pick a camp, scout it, fight it. No map markers yet.",
+  "o": "Claude",
+  "due": "Oct 10"
+ },
+ {
+  "id": "SS-309",
+  "c": "backlog",
+  "t": "Events and battles - after launch",
+  "d": "The 48-hour Smelt Rally stays as it is for launch. Tying events to battles comes later.",
+  "o": "Claude"
+ },
+ {
+  "id": "SS-403",
+  "c": "backlog",
+  "t": "Hero XP - after launch",
+  "d": "Hero XP from battle comes in the first update; the hero fights at level 1 at launch.",
+  "o": "Claude"
+ },
+ {
+  "id": "SS-434",
+  "c": "wait",
+  "t": "Lock the v1 list - eight yes/no questions",
+  "d": "1 Battles in v1 (camps + a boss from the barracks war table)? 2 Training Yard on sale with its one perk (weapons kept, no 11th bed)? 3 Purchases in v1 (your App Store Connect steps by Oct 19) or free first? 4 Keep the current app icon? 5 Hero XP waits for an update? 6 Only the dead lose gear? 7 Hide the three 48-hour mini-games for launch? 8 Keep the Smelt Rally as it is? Fable says yes to all eight.",
   "o": "Robert",
-  "due": "Oct 7"
+  "due": "Oct 8"
  },
  {
   "id": "SS-435",
@@ -143,10 +205,10 @@ const CARDS = [
  },
  {
   "id": "SS-161",
-  "c": "next",
-  "t": "Final app icon",
-  "d": "One half-elf/half-goblin image; it also fills the faction-select screen.",
-  "o": "Grok",
+  "c": "wait",
+  "t": "App icon - keep or repaint?",
+  "d": "The elf-and-goblin faces icon has been in the game since August. Keep it for launch, or have Grok repaint it in the painted style (request ready)? Fable: keep.",
+  "o": "Robert",
   "due": "Oct 9"
  },
  {
@@ -200,7 +262,7 @@ const CARDS = [
   "id": "SS-360",
   "c": "done",
   "t": "Two paid buildings: both sorted",
-  "d": "Training Yard now does what it says (weapons kept). Officers Tent is gone. Still hidden until combat ships.",
+  "d": "Training Yard does what it says (weapons kept, no 11th bed). Officers Tent is gone. On sale when battles switch on.",
   "o": "Claude"
  },
  {
@@ -240,18 +302,19 @@ const CARDS = [
  },
  {
   "id": "SS-454",
-  "c": "backlog",
-  "t": "Combat gear table: set by Fable",
-  "d": "Gear climbs in three big steps - silver, gold, the war metals. A squad a step behind almost always loses. Not in the game yet.",
-  "o": "Claude"
+  "c": "next",
+  "t": "Gear tier table wired in",
+  "d": "Fable's weapon and armor tier numbers go into the game (Oct 9 build).",
+  "o": "Claude",
+  "due": "Oct 9"
  },
  {
   "id": "SS-455",
   "c": "wait",
-  "t": "PvE challenges: the skeleton",
-  "d": "Challenges get built after the tier table is set. How the gates work: minimum troops and minimum gear tier.",
+  "t": "Camp difficulty - and pick the first boss",
+  "d": "Five camps and a boss in the home region; numbers Oct 14. One pick from you: the first boss, letter A, B or C for each side, from the boss page. Fable: B on both - beating it opens your third bed.",
   "o": "Robert",
-  "due": "Oct 3"
+  "due": "Oct 10"
  },
  {
   "id": "SS-399",
@@ -290,10 +353,11 @@ const CARDS = [
  },
  {
   "id": "SS-358",
-  "c": "done",
-  "t": "Hero strength: approved and built",
-  "d": "Hero = 3 troopers (2.5 to 3.5). Bosses need the hero: GO stays off without him.",
-  "o": "Claude"
+  "c": "ideas",
+  "t": "Parked: second hero - swap or add a slot?",
+  "d": "For next week, not this one. When a second hero comes, do players swap heroes or get more hero slots? Needs a rebalance: a hero is about 3 troopers and bosses need one.",
+  "o": "Claude",
+  "due": "Oct 15"
  },
  {
   "id": "SS-350",
@@ -326,9 +390,9 @@ const CARDS = [
  {
   "id": "SS-442",
   "c": "backlog",
-  "t": "D-13 Mini-game scoring: A",
-  "d": "Your call: most mined in 48 hours.",
-  "o": "Claude"
+  "t": "Mini-game scoring - and the three races at launch",
+  "d": "Your call stands: most mined in 48 hours. The three races are built but proposed hidden for launch; back in an update as an overlay on the map.",
+  "o": "Robert"
  },
  {
   "id": "SS-443",
@@ -374,25 +438,25 @@ const CARDS = [
  },
  {
   "id": "SS-424",
-  "c": "backlog",
+  "c": "next",
   "t": "Privacy policy page",
-  "d": "Required by Apple before submission.",
+  "d": "Required by Apple. Written Oct 9, on the board website Oct 10.",
   "o": "Claude",
   "due": "Oct 10"
  },
  {
   "id": "SS-425",
-  "c": "backlog",
+  "c": "next",
   "t": "Wider TestFlight beta",
-  "d": "Open the build to the tester group; collect bug reports.",
+  "d": "Add the tester group on Oct 11 (Apple checks the first outside build for a day or two). Beta build is the Oct 11 one.",
   "o": "Robert",
   "due": "Oct 12"
  },
  {
   "id": "SS-211",
-  "c": "backlog",
-  "t": "Balance pass (D-04, D-08, D-10)",
-  "d": "Tune costs, chest drops and node mixes together using the economy model.",
+  "c": "next",
+  "t": "Balance pass (numbers only)",
+  "d": "Node mixes, chest drops and research amounts tuned in the numbers files, Oct 14. The bigger model waits.",
   "o": "Claude",
   "due": "Oct 14"
  },
@@ -406,17 +470,17 @@ const CARDS = [
  },
  {
   "id": "SS-429",
-  "c": "backlog",
-  "t": "First-launch tutorial check",
-  "d": "Make sure a brand-new player knows what to tap first.",
+  "c": "next",
+  "t": "First-launch check",
+  "d": "A new player is pointed from the two Spearmen to their first fight. Oct 13.",
   "o": "Claude",
-  "due": "Oct 17"
+  "due": "Oct 13"
  },
  {
   "id": "SS-426",
-  "c": "backlog",
-  "t": "Fix bugs from beta",
-  "d": "Work the tester reports, most serious first.",
+  "c": "next",
+  "t": "Fix bugs from the beta",
+  "d": "Tester reports worked most serious first, from Oct 13; a hotfix slot held every day.",
   "o": "Claude",
   "due": "Oct 19"
  },
@@ -547,8 +611,8 @@ const CARDS = [
  {
   "id": "SS-336",
   "c": "backlog",
-  "t": "Repair ideas and battle losses",
-  "d": "Your parked repair ideas, kept with the loss rules.",
+  "t": "Battle losses - after launch",
+  "d": "At launch only a trooper who dies loses his gear. The abandoned-and-damaged rule comes later.",
   "o": "Claude"
  },
  {
