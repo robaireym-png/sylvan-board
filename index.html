@@ -69,7 +69,7 @@ details.help ul { padding-left:18px; margin:4px 0; }
   <p>Every card here is a card on the project's master board (the small SS number on each card). This page is rebuilt from it, so it can't drift: when a card moves on the master board, it moves here the next time the page is rebuilt.</p>
   <h3>What a sprint is</h3>
   <p>A sprint is a short, fixed block of time (here: one week, Thursday to Wednesday) with a small list of work we promise to finish. If something doesn't fit, it goes back to Backlog instead of quietly slipping.</p>
-  <p><b>Current sprint:</b> Sprint 2, Oct 8-14. Goal: battles switched on for the beta (if you say yes), the store-build switches in, the privacy page live, and the Oct 11 beta build out.</p>
+  <p><b>Current sprint:</b> Sprint 2, Oct 8-14. Goal: battles switched on for the beta (you said yes, 10/9), the store-build switches in, the privacy page live, and the Oct 11 beta build out. **Beta date (Fable, confirmed 10/9): beta build Oct 11, outside testers Oct 12 - on track.**</p>
   <h3>How to move cards</h3>
   <p>Tap <b>&#9664;</b> or <b>&#9654;</b> on a card to move it on <b>this device only</b>. To make a move permanent, tell Claude ("move SS-414 to Done" or "answer to SS-415: research") and the board is rebuilt.</p>
   <h3>Suggested weekly routine (about 15 minutes)</h3>
@@ -127,49 +127,49 @@ const COLS = [
 const CARDS = [
  {
   "id": "SS-477",
-  "c": "wait",
+  "c": "done",
   "t": "Fable's week review",
-  "d": "Two pages in your inbox: where the game is, this week's plan day by day, the battle plan, art holes, where mini-games stand, eight yes/no questions - and the boss menu to pick from.",
+  "d": "Your call (10/9): \"Yes go with fable decision.\" The plan is under way.",
   "o": "Claude",
   "due": "Oct 8"
  },
  {
   "id": "SS-279",
-  "c": "next",
+  "c": "wait",
   "t": "First playable battles",
-  "d": "Your troops and hero march from the barracks as they stand; fights switch on for players in the Oct 11 build if you say yes. The boss menu is a page in your inbox - only the first boss matters for launch.",
+  "d": "Battles are switched on in the build of Oct 9 - the beta candidate, two days early. Open the Barracks, the War Table in the Officers' room.",
   "o": "Claude",
   "due": "Oct 11"
  },
  {
   "id": "SS-478",
-  "c": "next",
+  "c": "wait",
   "t": "Store-build switches",
-  "d": "The developer menu and test buttons are hidden in the store build; faction switching is locked; the sample leaderboard is labelled; the three races hidden if you say so. In the Oct 11 build.",
+  "d": "In the beta build: no developer menu or test buttons, faction locked, sample leaderboard labelled, the three races hidden.",
   "o": "Claude",
   "due": "Oct 11"
  },
  {
   "id": "SS-479",
-  "c": "next",
+  "c": "done",
   "t": "Enemy camps: the list",
-  "d": "Five camps and a boss camp in the home region, with what each pays. Numbers tuned after the gear table.",
+  "d": "Six camps in the home region, the boss included, with what each pays. In the Oct 9 build behind the developer menu.",
   "o": "Claude",
   "due": "Oct 8"
  },
  {
   "id": "SS-480",
-  "c": "next",
+  "c": "done",
   "t": "After the battle",
-  "d": "Troopers can fall or be wounded; the fallen lose gear, name and rank and go up on the Honour Wall; survivors earn ranks; camps pay materials and trophies.",
+  "d": "Troopers can fall or be wounded; the fallen lose gear, name and rank and go up on the Honour Wall; survivors earn ranks; camps pay materials and trophies. In the Oct 9 build behind the developer menu.",
   "o": "Claude",
   "due": "Oct 9"
  },
  {
   "id": "SS-481",
-  "c": "next",
+  "c": "done",
   "t": "The War Table",
-  "d": "In the barracks officers' room: pick a camp, scout it, fight it. No map markers yet.",
+  "d": "Done (build 195): in the Barracks Officers' room - pick a camp, scout it, fight it; the Honour Wall is listed there.",
   "o": "Claude",
   "due": "Oct 10"
  },
@@ -189,9 +189,9 @@ const CARDS = [
  },
  {
   "id": "SS-434",
-  "c": "wait",
-  "t": "Lock the v1 list - eight yes/no questions",
-  "d": "1 Battles in v1 (camps + a boss from the barracks war table)? 2 Training Yard on sale with its one perk (weapons kept, no 11th bed)? 3 Purchases in v1 (your App Store Connect steps by Oct 19) or free first? 4 Keep the current app icon? 5 Hero XP waits for an update? 6 Only the dead lose gear? 7 Hide the three 48-hour mini-games for launch? 8 Keep the Smelt Rally as it is? Fable says yes to all eight.",
+  "c": "done",
+  "t": "v1 list locked - all eight yes",
+  "d": "Your call (10/9): yes to all eight, as Fable recommended. Battles, the Training Yard and purchases are in; the icon stays; hero XP and the three races wait for an update; only the dead lose gear; the Smelt Rally stays.",
   "o": "Robert",
   "due": "Oct 8"
  },
@@ -205,9 +205,9 @@ const CARDS = [
  },
  {
   "id": "SS-161",
-  "c": "wait",
-  "t": "App icon - keep or repaint?",
-  "d": "The elf-and-goblin faces icon has been in the game since August. Keep it for launch, or have Grok repaint it in the painted style (request ready)? Fable: keep.",
+  "c": "done",
+  "t": "App icon: keeping the current one",
+  "d": "Your call (10/9): keep the elf-and-goblin faces icon for launch. The repaint request stays on hold.",
   "o": "Robert",
   "due": "Oct 9"
  },
@@ -221,9 +221,9 @@ const CARDS = [
  },
  {
   "id": "SS-483",
-  "c": "backlog",
+  "c": "done",
   "t": "New Grok art waiting to go in",
-  "d": "Grok delivered repainted elf porters (walking, handcart, wagon), scout rangers, the goblin barracks frame and the gear-kit layers. Not in the game yet; they go in together in one art build.",
+  "d": "Done (build 195): the repainted elf porters (walking, handcart, wagon), the scout rangers and the goblin barracks frame are in the game.",
   "o": "Claude"
  },
  {
@@ -243,9 +243,9 @@ const CARDS = [
  },
  {
   "id": "SS-419",
-  "c": "wait",
+  "c": "done",
   "t": "Is this board right?",
-  "d": "The board is now rebuilt from the master list, so cards can't fall off. Have a look and say if anything is wrong.",
+  "d": "Closed (10/9): assumed right. Say any time if something looks wrong.",
   "o": "Robert",
   "due": "Oct 2"
  },
@@ -325,19 +325,19 @@ const CARDS = [
  },
  {
   "id": "SS-454",
-  "c": "next",
+  "c": "done",
   "t": "Gear tier table wired in",
-  "d": "Fable's weapon and armor tier numbers go into the game (Oct 9 build).",
+  "d": "Fable's weapon and armor tier numbers are in the battle maths (Oct 9 build).",
   "o": "Claude",
   "due": "Oct 9"
  },
  {
   "id": "SS-455",
-  "c": "wait",
-  "t": "Camp difficulty - and pick the first boss",
-  "d": "Five camps and a boss in the home region; numbers Oct 14. One pick from you: the first boss, letter A, B or C for each side, from the boss page. Fable: B on both - beating it opens your third bed.",
-  "o": "Robert",
-  "due": "Oct 10"
+  "c": "next",
+  "t": "Camp difficulty - boss B on both sides",
+  "d": "Your call (10/9): boss B on both sides - the Tally-Man for elves, the Greenwood Toll for goblins. Beating it pays 100 copper ore, which opens your third bed. First numbers in; the tuning pass is Oct 14.",
+  "o": "Claude",
+  "due": "Oct 14"
  },
  {
   "id": "SS-399",
@@ -355,9 +355,9 @@ const CARDS = [
  },
  {
   "id": "SS-314",
-  "c": "wait",
+  "c": "done",
   "t": "Scout report picture",
-  "d": "The scout picture now uses a wide 16:9 slot. Check it isn't squashed.",
+  "d": "Closed (10/9): assumed fine; you will see it in the battle beta.",
   "o": "Robert"
  },
  {
@@ -461,19 +461,19 @@ const CARDS = [
  },
  {
   "id": "SS-424",
-  "c": "next",
+  "c": "done",
   "t": "Privacy policy page",
-  "d": "Required by Apple. Written Oct 9, on the board website Oct 10.",
+  "d": "Live (Oct 9, a day early) on the board website, at the privacy page. Use that link in App Store Connect for TestFlight and the store listing.",
   "o": "Claude",
   "due": "Oct 10"
  },
  {
   "id": "SS-425",
-  "c": "next",
+  "c": "wait",
   "t": "Wider TestFlight beta",
-  "d": "Add the tester group on Oct 11 (Apple checks the first outside build for a day or two). Beta build is the Oct 11 one.",
+  "d": "Needs your hands by Oct 11: in App Store Connect, add the outside tester group in TestFlight and send the Oct 11 build to Apple's beta review (1-2 days). Beta date holds: build Oct 11, testers Oct 12.",
   "o": "Robert",
-  "due": "Oct 12"
+  "due": "Oct 11"
  },
  {
   "id": "SS-211",
@@ -493,9 +493,9 @@ const CARDS = [
  },
  {
   "id": "SS-429",
-  "c": "next",
+  "c": "wait",
   "t": "First-launch check",
-  "d": "A new player is pointed from the two Spearmen to their first fight. Oct 13.",
+  "d": "New players are told their first fight waits at the War Table; the first camp is one two Spearmen can win.",
   "o": "Claude",
   "due": "Oct 13"
  },
@@ -549,17 +549,19 @@ const CARDS = [
  },
  {
   "id": "SS-032",
-  "c": "backlog",
+  "c": "wait",
   "t": "App Store Connect: paid apps agreement",
-  "d": "Account setup that has to be done before anything can be sold.",
-  "o": "Robert"
+  "d": "Needs your hands by Oct 19 (Mac): sign the Paid Apps agreement and finish banking and tax in App Store Connect. Purchases are in v1, and nothing can be sold until this is done.",
+  "o": "Robert",
+  "due": "Oct 19"
  },
  {
   "id": "SS-166",
-  "c": "backlog",
+  "c": "wait",
   "t": "Create the in-app purchases",
-  "d": "Set up the products in App Store Connect.",
-  "o": "Robert"
+  "d": "Needs your hands by Oct 19 (Mac): in App Store Connect create three one-time purchases - Guild House $7.99, Training Yard $4.99, Watchtower $4.99 (ids on the card: com.sylvan.premium.guildhouse / .trainingyard / .watchtower). Skip the Officers Tent; it was dropped.",
+  "o": "Robert",
+  "due": "Oct 19"
  },
  {
   "id": "SS-391",
