@@ -50,7 +50,7 @@ details.help ul { padding-left:18px; margin:4px 0; }
 <body>
 <header>
   <h1>Sylvan &amp; Scourge - Project Board</h1>
-  <div class="sub">Updated Oct 11, 2026 &middot; Submit to App Store <b>Oct 26</b> &middot; Live about <b>Nov 2</b></div>
+  <div class="sub">Updated Oct 12, 2026 &middot; Submit to App Store <b>Oct 26</b> &middot; Live about <b>Nov 2</b></div>
   <div class="count" id="count"></div>
 </header>
 
@@ -206,18 +206,75 @@ const CARDS = [
  },
  {
   "id": "SS-486",
-  "c": "backlog",
+  "c": "next",
   "t": "Battles: what is left",
-  "d": "Checked every picture and feature battles use. For the beta: the trophy icons every camp drops and the goblin scout pictures were wrong - both fixed in build 200. For launch: show pictures we already have (boss face, rank badges, wounded marks, Honour Wall plaques, loot icons) - code only, no new art.",
-  "o": "Claude"
+  "d": "Must before Oct 21 (Fable, Oct 12): show the pictures battles already have - boss face, rank badges, wounded marks, loot icons, Honour Wall plaques - and name the kind of win. Code only, no new art. Store screenshots wait for this.",
+  "o": "Claude",
+  "due": "Oct 19"
  },
  {
   "id": "SS-487",
   "c": "wait",
   "t": "Starter Pack for new players",
-  "d": "Fable's plan, three yes/no: (1) price $4.99? (2) elves get Caelith + a tin sword, goblins get Skarn + a tin bow, both with a tin cuirass and 200 gems? (3) offered once right after the first battle, then 3 days in the shop, then gone? If yes, you add one more purchase on the Mac with the other three by Oct 19. Not built until you say yes.",
+  "d": "Fable's plan, three yes/no - please by Oct 14, or it moves to the first update: (1) price $4.99? (2) elves get Caelith + a tin sword, goblins get Skarn + a tin bow, both with a tin cuirass and 200 gems? (3) offered once right after the first battle, then 7 days in the shop (Fable now says 7, not 3), then gone? If yes, you add one more purchase on the Mac with the other three by Oct 19. Not built until you say yes.",
   "o": "Robert",
-  "due": "Oct 19"
+  "due": "Oct 14"
+ },
+ {
+  "id": "SS-488",
+  "c": "done",
+  "t": "Launch check against other games",
+  "d": "Done: Fable checked the whole game against similar phone games. Verdict: ready for Oct 26 with 7 must-fixes - 3 are yours on the Mac (agreements, purchases, testers), 4 are mine (a \"Next\" hint for new players, battle pictures, chest odds, store text). Grok's Oct 12 audit had not arrived; the next session sorts it when it does.",
+  "o": "Claude",
+  "due": "Oct 12"
+ },
+ {
+  "id": "SS-489",
+  "c": "wait",
+  "t": "Map edges: spring back + edge mist",
+  "d": "You asked: the map now stops at its edge with a little give and springs back when you let go, and a soft mist hides the square edges (the fog painted in September, finally switched on). Fable decided: no tree border needed. One look on your phone: is the mist too strong near the right-hand mines? yes/no.",
+  "o": "Claude",
+  "due": "Oct 12"
+ },
+ {
+  "id": "SS-490",
+  "c": "next",
+  "t": "Chest odds shown",
+  "d": "Apple wants the chances printed for chests bought with gems. One line of odds under each chest. Needed before submitting.",
+  "o": "Claude",
+  "due": "Oct 20"
+ },
+ {
+  "id": "SS-491",
+  "c": "backlog",
+  "t": "Two reminders on your phone",
+  "d": "Fable: \"your scout report is back\" and \"your porters have stopped\". Asked for after the first battle, never on launch. If it misses Oct 21, first update.",
+  "o": "Claude",
+  "due": "Oct 21"
+ },
+ {
+  "id": "SS-492",
+  "c": "backlog",
+  "t": "Little buzzes on taps",
+  "d": "Fable: a small phone buzz on six moments - tapping a mine, placing a building, opening a chest, GO, the battle result, a purchase.",
+  "o": "Claude",
+  "due": "Oct 21"
+ },
+ {
+  "id": "SS-493",
+  "c": "backlog",
+  "t": "Ask for a rating once",
+  "d": "Apple's rating pop-up, once, after a player beats the first boss.",
+  "o": "Claude",
+  "due": "Oct 21"
+ },
+ {
+  "id": "SS-494",
+  "c": "backlog",
+  "t": "Three small explanations",
+  "d": "A red dot when the daily chest is waiting; \"porters stop after 90 minutes - a Rune extends it\" when you come back; \"gems buy chests and speed-ups\" in the shop.",
+  "o": "Claude",
+  "due": "Oct 21"
  },
  {
   "id": "SS-309",
@@ -531,19 +588,19 @@ const CARDS = [
  },
  {
   "id": "SS-427",
-  "c": "backlog",
+  "c": "next",
   "t": "App Store listing text",
-  "d": "Title, description, keywords. Uses the \"skill-fair sprints\" wording (D-11).",
+  "d": "Must (Fable, Oct 12): title, subtitle \"Elves vs Goblins idle war\", keywords, description that leads with \"No gem packs. Nothing you can mine is ever for sale.\", the privacy answers (\"Data Not Collected\") and notes for Apple's reviewer. Ready for you to paste by Oct 16.",
   "o": "Claude",
   "due": "Oct 16"
  },
  {
   "id": "SS-429",
-  "c": "done",
-  "t": "First-launch check",
-  "d": "Done (build 196): new players are told their first fight waits at the War Table; the first camp is one two Spearmen can win.",
+  "c": "next",
+  "t": "First-launch help",
+  "d": "Next (Fable, Oct 12): a small \"Next\" hint for a new player's first four steps - mine copper, build the Home Base, build the Smelter, open the War Table. Done before: new players are told their first fight waits at the War Table.",
   "o": "Claude",
-  "due": "Oct 13"
+  "due": "Oct 20"
  },
  {
   "id": "SS-426",
@@ -557,7 +614,7 @@ const CARDS = [
   "id": "SS-428",
   "c": "backlog",
   "t": "App Store screenshots",
-  "d": "Phone screenshots of the best screens.",
+  "d": "Six phone screenshots (Fable picks): the map at your Home Base, the Barracks hall, the War Table, a victory, the craft ladder, the shop. Take them after the battle pictures go in (SS-486). No video needed.",
   "o": "Robert",
   "due": "Oct 19"
  },
@@ -676,8 +733,9 @@ const CARDS = [
   "id": "SS-437",
   "c": "wait",
   "t": "Heroes: names and perks",
-  "d": "Grok painted two new heroes. Fable proposes, yes/no each: (1) elf Caelith Silvermere, the Swordmaster - your swordsmen +15% damage when he leads; (2) goblin Skarn Thornhollow, the Dead-Tree Ranger - your archers +15%; (3) Krell Blackscar becomes the face of the first boss elves fight; (4) one more painting: elf archer Nimriel Farshaft, the first boss goblins fight; (5) these two paintings are your heroes everywhere, one per player, no choice screen. Not built until you say yes.",
-  "o": "Grok"
+  "d": "Grok painted two new heroes. Please by Oct 14 to make launch. Fable proposes, yes/no each: (1) elf Caelith Silvermere, the Swordmaster - your swordsmen +15% damage when he leads; (2) goblin Skarn Thornhollow, the Dead-Tree Ranger - your archers +15%; (3) Krell Blackscar becomes the face of the first boss elves fight; (4) one more painting: elf archer Nimriel Farshaft, the first boss goblins fight; (5) these two paintings are your heroes everywhere, one per player, no choice screen. Not built until you say yes.",
+  "o": "Grok",
+  "due": "Oct 14"
  },
  {
   "id": "SS-336",
